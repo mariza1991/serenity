@@ -9,7 +9,7 @@ Feature:
     And result page contains 10 results
 
   Scenario: Negative test: use search
-    Given user opens the site negative
-    And user clicks input negative
-    When user input and enter 'csdsdccdcdc' negative
+    Given user opens the site
+    And user clicks input
+    When user input and enter 'csdsdccdcdc'
     Then result page contains message about nothing was found

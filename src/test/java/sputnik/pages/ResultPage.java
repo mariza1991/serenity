@@ -9,10 +9,13 @@ import org.openqa.selenium.support.FindBy;
 
 import static sputnik.model.SessionVariables.SELECTED_LISTING;
 
-public class PositiveResultPage extends PageObject {
+public class ResultPage extends PageObject {
 
     @FindBy(xpath = "//div[@class='b-result js-metrics']")
     WebElementFacade resultBlocks;
+
+    @FindBy(xpath = "//div[@class='b-query']")
+    WebElementFacade resultNotFoungMessage;
 
     public String getExpetedTitle() {
         String myQuery = Serenity.sessionVariableCalled(SELECTED_LISTING);
@@ -27,5 +30,9 @@ public class PositiveResultPage extends PageObject {
 
     public int actualNumberOfResults(){
         return resultBlocks.findElements(By.xpath("//div[@class='b-result js-metrics']")).size();
+    }
+
+    public boolean resultPageContainsMessage(){
+        return resultNotFoungMessage.containsText("По вашему запросу ничего не найдено.");
     }
 }
