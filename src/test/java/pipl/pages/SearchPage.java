@@ -16,8 +16,8 @@ public class SearchPage extends PageObject {
 
     public void search(String text) {
         searchInput.type(text);
-        $("div>input[type='submit']").click();
-//      alternative method:  searchButton.click();
+        searchButton.click();
+    //    alternative: $("div>input[type='submit']").click();
     }
 
     public void inputToSearchField(String text) {
